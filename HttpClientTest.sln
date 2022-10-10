@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientTest.Stripe", "HttpClientTest.Stripe\HttpClientTest.Stripe.csproj", "{FA06DAB2-77D8-42CA-8244-9FD3502A92D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientTest.Cybersource", "HttpClientTest.Cybersource\HttpClientTest.Cybersource.csproj", "{C2091992-2CE8-4354-BF3E-DE4614F7911D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FA06DAB2-77D8-42CA-8244-9FD3502A92D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA06DAB2-77D8-42CA-8244-9FD3502A92D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA06DAB2-77D8-42CA-8244-9FD3502A92D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2091992-2CE8-4354-BF3E-DE4614F7911D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2091992-2CE8-4354-BF3E-DE4614F7911D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2091992-2CE8-4354-BF3E-DE4614F7911D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2091992-2CE8-4354-BF3E-DE4614F7911D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
