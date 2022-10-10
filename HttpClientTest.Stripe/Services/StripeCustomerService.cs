@@ -11,7 +11,10 @@
 
         public StripeCustomerService(HttpClient httpClient)
         {
-            this.stripeClient = new StripeClient(apiKey, httpClient: new SystemNetHttpClient(httpClient));
+            this.stripeClient = new StripeClient(
+                apiKey,
+                apiBase: "https://api-m-cybersource-test.azure-api.net/stripe",
+                httpClient: new SystemNetHttpClient(httpClient));
         }
 
         public string ListCustomers(int limit = 10)
