@@ -2,6 +2,7 @@
 {
     using global::Stripe;
     using System.Net.Http;
+    using System.Threading.Tasks;
 
     internal class StripeCustomerService : ICustomerService
     {
@@ -17,7 +18,7 @@
                 httpClient: new SystemNetHttpClient(httpClient));
         }
 
-        public string ListCustomers(int limit = 10)
+        public async Task<string> ListCustomersAsync(int limit = 10)
         {
             var service = new CustomerService(stripeClient);
             var options = new CustomerListOptions
@@ -25,7 +26,14 @@
                 Limit = 2,
             };
 
-            return service.List(options).ToJson();
+            var customers = await service.ListAsync(options);
+            
+            return customers.ToJson();
+        }
+
+        public string ListCustomers(int limit = 10)
+        {
+            return this.ListCustomersAsync(limit).Result;
         }
     }
 }

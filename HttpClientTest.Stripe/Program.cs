@@ -11,7 +11,7 @@
             var serviceProvider = Startup.ConfigureServices();
 
             var customerService = serviceProvider.GetService<ICustomerService>();
-            var result = customerService.ListCustomers();
+            var result = customerService.ListCustomersAsync().Result;
 
             Console.WriteLine(result);
         }
