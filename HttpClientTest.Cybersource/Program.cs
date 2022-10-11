@@ -1,10 +1,10 @@
-﻿using HttpClientTest.Cybersource.Model;
+﻿using HttpClientTest.Cybersource.Prototype.Model;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace HttpClientTest.Cybersource
+namespace HttpClientTest.Cybersource.Prototype
 {
     internal class Program
     {

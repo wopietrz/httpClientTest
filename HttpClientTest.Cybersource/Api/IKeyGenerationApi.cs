@@ -1,6 +1,6 @@
-﻿namespace HttpClientTest.Cybersource.Api
+﻿namespace HttpClientTest.Cybersource.Prototype.Api
 {
-    using HttpClientTest.Cybersource.Model;
+    using HttpClientTest.Cybersource.Prototype.Model;
     using System.Threading.Tasks;
 
     public interface IKeyGenerationApi

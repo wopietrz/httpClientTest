@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace HttpClientTest.Cybersource.Model
+namespace HttpClientTest.Cybersource.Prototype.Model
 {
     public class GeneratePublicKeyRequest
     {

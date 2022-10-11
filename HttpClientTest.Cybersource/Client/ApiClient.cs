@@ -1,4 +1,4 @@
-﻿namespace HttpClientTest.Cybersource.Client
+﻿namespace HttpClientTest.Cybersource.Prototype.Client
 {
     using AuthenticationSdk.core;
     using RestSharp;

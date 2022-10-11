@@ -1,6 +1,6 @@
-﻿namespace HttpClientTest.Cybersource
+﻿namespace HttpClientTest.Cybersource.Prototype
 {
-    using HttpClientTest.Cybersource.Model;
+    using HttpClientTest.Cybersource.Prototype.Model;
     using System.Threading.Tasks;
 
     public interface ICybersourceService

@@ -1,8 +1,8 @@
-﻿namespace HttpClientTest.Cybersource
+﻿namespace HttpClientTest.Cybersource.Prototype
 {
-    using HttpClientTest.Cybersource.Api;
-    using HttpClientTest.Cybersource.Client;
-    using HttpClientTest.Cybersource.Model;
+    using HttpClientTest.Cybersource.Prototype.Api;
+    using HttpClientTest.Cybersource.Prototype.Client;
+    using HttpClientTest.Cybersource.Prototype.Model;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;

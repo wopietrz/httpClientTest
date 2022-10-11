@@ -1,7 +1,7 @@
-﻿namespace HttpClientTest.Cybersource.Api
+﻿namespace HttpClientTest.Cybersource.Prototype.Api
 {
-    using HttpClientTest.Cybersource.Client;
-    using HttpClientTest.Cybersource.Model;
+    using HttpClientTest.Cybersource.Prototype.Client;
+    using HttpClientTest.Cybersource.Prototype.Model;
     using Newtonsoft.Json;
     using RestSharp;
     using System.Collections.Generic;
