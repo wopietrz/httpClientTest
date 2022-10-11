@@ -14,7 +14,7 @@ namespace HttpClientTest.Cybersource
 
             var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
 
-            var result = service.GetneratePublicKey("JWT", request);
+            var result = service.GeneratePublicKeyAsync("JWT", request).Result;
 
             Console.WriteLine(result);
         }

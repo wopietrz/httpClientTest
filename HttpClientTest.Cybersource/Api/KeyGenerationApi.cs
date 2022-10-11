@@ -26,7 +26,7 @@
             };
 
 
-            return this.apiClient.CallApi("/flex/v1/keys", Method.Post, queryParametes, requestBody);
+            return await this.apiClient.CallApiAsync("/flex/v1/keys", Method.Post, queryParametes, requestBody);
         }
     }
 }

@@ -5,6 +5,7 @@
     using HttpClientTest.Cybersource.Model;
     using System.Collections.Generic;
     using System.Net.Http;
+    using System.Threading.Tasks;
 
     public class CybersourceService : ICybersourceService
     {
@@ -15,7 +16,7 @@
             this.httpClient = httpClient;
         }
 
-        public string GetneratePublicKey(string format, GeneratePublicKeyRequest request)
+        public async Task<string> GeneratePublicKeyAsync(string format, GeneratePublicKeyRequest request)
         {
             var configuration = new Configuration(GetMerchantConfiguration())
             {
@@ -23,7 +24,12 @@
             };
             var api = new KeyGenerationApi(httpClient, configuration);
 
-            return api.GeneratePublicKeyAsync(format, request).Result;
+            return await api.GeneratePublicKeyAsync(format, request);
+        }
+
+        public string GetneratePublicKey(string format, GeneratePublicKeyRequest request)
+        {
+            return this.GeneratePublicKeyAsync(format, request).Result;
         }
 
         private IReadOnlyDictionary<string, string> GetMerchantConfiguration()

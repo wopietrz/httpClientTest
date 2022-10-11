@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Text;
+    using System.Threading.Tasks;
 
     public class ApiClient
     {
@@ -18,7 +19,7 @@
             this.restClient = new RestClient(httpClient, new RestClientOptions() { BaseUrl = new Uri(configuration.BasePath) });
         }
 
-        public string CallApi(string resource, Method httpMethod, Dictionary<string, string> queryParameters, string requestBody)
+        public async Task<string> CallApiAsync(string resource, Method httpMethod, Dictionary<string, string> queryParameters, string requestBody)
         {
             var restRequest = new RestRequest()
             {
@@ -27,7 +28,7 @@
             };
 
             restRequest.AddStringBody(requestBody, DataFormat.Json);
-            
+
             string path = resource;
 
             var firstQueryParam = true;
@@ -54,9 +55,14 @@
             restRequest.AddOrUpdateHeaders(authenticationHeaders);
             restRequest.AddHeader("Content-Type", "application/json");
 
-            var response = this.restClient.Execute(restRequest);
+            var response = await this.restClient.ExecuteAsync(restRequest);
 
             return response.Content;
+        }
+
+        public string CallApi(string resource, Method httpMethod, Dictionary<string, string> queryParameters, string requestBody)
+        {
+            return this.CallApiAsync(resource, httpMethod, queryParameters, requestBody).Result;
         }
 
         private IDictionary<string, string> CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null)
