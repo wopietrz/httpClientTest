@@ -43,7 +43,7 @@ namespace HttpClientTest.Cybersource.Prototype
             }
 
             stopWatch.Stop();
-            Console.WriteLine($"Elapsed = {stopWatch.ElapsedMilliseconds}");
+            Console.WriteLine($"HttpClientTest.Cybersource.Prototype Elapsed = {stopWatch.ElapsedMilliseconds}");
         }
     }
 }

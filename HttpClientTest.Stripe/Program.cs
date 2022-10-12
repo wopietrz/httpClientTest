@@ -40,7 +40,7 @@
             }
 
             stopWatch.Stop();
-            Console.WriteLine($"Elapsed = {stopWatch.ElapsedMilliseconds}");
+            Console.WriteLine($"HttpClientTest.Stripe Elapsed = {stopWatch.ElapsedMilliseconds}");
         }
     }
 }

@@ -41,7 +41,7 @@ namespace HttpClientTest.Cybersource.NuGet
                 Console.WriteLine(i);
             }
             stopWatch.Stop();
-            Console.WriteLine($"Elapsed = {stopWatch.ElapsedMilliseconds}");
+            Console.WriteLine($"HttpClientTest.Cybersource.NuGet Elapsed = {stopWatch.ElapsedMilliseconds}");
         }
 
         private static Dictionary<string, string> GetConfiguration()
