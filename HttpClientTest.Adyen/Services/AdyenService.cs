@@ -14,13 +14,7 @@
         private readonly Client client;
         public AdyenService()
         {
-            var config = new Config()
-            {
-                XApiKey = key,
-                Environment = Adyen.Model.Enum.Environment.Test
-            };
-
-            this.client = new Client(config);
+            this.client = new Client(key, Adyen.Model.Enum.Environment.Test);
         }
 
 
