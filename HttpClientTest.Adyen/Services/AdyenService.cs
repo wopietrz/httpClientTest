@@ -14,7 +14,13 @@
         private readonly Client client;
         public AdyenService()
         {
-            this.client = new Client(key,Adyen.Model.Enum.Environment.Test);
+            var config = new Config()
+            {
+                XApiKey = key,
+                Environment = Adyen.Model.Enum.Environment.Test
+            };
+
+            this.client = new Client(config);
         }
 
 
@@ -27,11 +33,11 @@
                 CountryCode = "NL",
                 ShopperLocale = "nl-NL",
                 Amount = amount,
-                Channel = PaymentMethodsRequest.ChannelEnum.Web
+                Channel = PaymentMethodsRequest.ChannelEnum.Web,
             };
             try
             {
-                var paymentMethodsResponse = checkout.PaymentMethods(paymentMethodsRequest);
+                var paymentMethodsResponse = await checkout.PaymentMethodsAsync(paymentMethodsRequest);
                 return JsonConvert.SerializeObject(paymentMethodsResponse);
             }
             catch (Exception ex)
