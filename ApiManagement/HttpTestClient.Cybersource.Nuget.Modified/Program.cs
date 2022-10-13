@@ -39,7 +39,7 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
             var defaultHeader = new Dictionary<string, string>();
 
             defaultHeader.Add("Ocp-Apim-Subscription-Key", "e895703d8c6e4ff6aea58174c024f57e");
-            //defaultHeader.Add("Ocp-Apim-Trace", "true");
+            defaultHeader.Add("Ocp-Apim-Trace", "true");
             defaultHeader.Add("Host", "api-m-cybersource-test.azure-api.net");
             
             return new Configuration(
@@ -52,9 +52,9 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
         {
             var configurationDictionary = new Dictionary<string, string>();
             configurationDictionary.Add("authenticationType", "HTTP_SIGNATURE");
-            configurationDictionary.Add("merchantID", "axa_retail_ecom_sit");
-            configurationDictionary.Add("merchantsecretKey", "5XVH1QXcPG2pTgpr+ruZHYcEQ8SvawJ8tI9Pophz2TI=");
-            configurationDictionary.Add("merchantKeyId", "3ea190d9-be22-46e6-b2e4-fc3cd8250ce4");
+            configurationDictionary.Add("merchantID", "<TODO>");
+            configurationDictionary.Add("merchantsecretKey", "<TODO>");
+            configurationDictionary.Add("merchantKeyId", "<TODO>");
             configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             configurationDictionary.Add("keyFilename", "testrest");
             configurationDictionary.Add("keyAlias", "testrest");

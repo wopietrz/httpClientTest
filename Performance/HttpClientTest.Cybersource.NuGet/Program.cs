@@ -72,9 +72,9 @@ namespace HttpClientTest.Cybersource.NuGet
         {
             var configurationDictionary = new Dictionary<string, string>();
             configurationDictionary.Add("authenticationType", "HTTP_SIGNATURE");
-            configurationDictionary.Add("merchantID", "axa_retail_ecom_sit");
-            configurationDictionary.Add("merchantsecretKey", "5XVH1QXcPG2pTgpr+ruZHYcEQ8SvawJ8tI9Pophz2TI=");
-            configurationDictionary.Add("merchantKeyId", "3ea190d9-be22-46e6-b2e4-fc3cd8250ce4");
+            configurationDictionary.Add("merchantID", "<TODO>");
+            configurationDictionary.Add("merchantsecretKey", "<TODO>");
+            configurationDictionary.Add("merchantKeyId", "<TODO>");
             configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
             configurationDictionary.Add("keyFilename", "testrest");
             configurationDictionary.Add("keyAlias", "testrest");
