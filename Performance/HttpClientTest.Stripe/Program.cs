@@ -12,9 +12,9 @@
     {
         public static async Task Main()
         {
-            await SingleCallAsync();
+            //await SingleCallAsync();
             await BenchmarkSequenceAsync();
-            await BenchmarkParallelAsync();
+            //await BenchmarkParallelAsync();
             Console.ReadKey();
         }
 
@@ -43,7 +43,7 @@
             }
 
             stopWatch.Stop();
-            Console.WriteLine($"HttpClientTest.Stripe Elapsed = {stopWatch.ElapsedMilliseconds}");
+            Console.WriteLine($"HttpClientTest.Stripe/ Sequence Elapsed = {stopWatch.ElapsedMilliseconds}");
         }
 
         private static async Task BenchmarkParallelAsync()
@@ -65,7 +65,7 @@
             }));
             await Task.WhenAll(tasks);
             stopWatch.Stop();
-            Console.WriteLine($"HttpClientTest.Stripe Elapsed = {stopWatch.ElapsedMilliseconds}");
+            Console.WriteLine($"HttpClientTest.Stripe/ Parallel Elapsed = {stopWatch.ElapsedMilliseconds}");
         }
     }
 }

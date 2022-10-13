@@ -46,7 +46,7 @@ namespace HttpClientTest.Cybersource.Prototype
             }
 
             stopWatch.Stop();
-            Console.WriteLine($"HttpClientTest.Cybersource.Prototype Elapsed = {stopWatch.ElapsedMilliseconds}");
+            Console.WriteLine($"HttpClientTest.Cybersource.Prototype/ Sequence Elapsed = {stopWatch.ElapsedMilliseconds}");
         }
 
         private static async Task BenchmarkParallelAsync()
