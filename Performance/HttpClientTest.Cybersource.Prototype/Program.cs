@@ -12,9 +12,10 @@ namespace HttpClientTest.Cybersource.Prototype
     {
         public static async Task Main()
         {
-            await SingleCallAsync();
+            //await SingleCallAsync();
             await BenchmarkSequenceAsync();
-            await BenchmarkParallelAsync();
+            //await BenchmarkParallelAsync();
+
             Console.ReadKey();
         }
 
@@ -36,10 +37,10 @@ namespace HttpClientTest.Cybersource.Prototype
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            var service = serviceProvider.GetService<ICybersourceService>();
             for (int i = 0; i < 100; i++)
             {
                 var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
-                var service = serviceProvider.GetService<ICybersourceService>();
                 var result = await service.GeneratePublicKeyAsync("JWT", request);
 
                 Console.WriteLine(i);
@@ -56,13 +57,14 @@ namespace HttpClientTest.Cybersource.Prototype
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+
+            var service = serviceProvider.GetService<ICybersourceService>();
             IEnumerable<Task> tasks = Enumerable.Range(1, 100).Select(i => Task.Run(async () =>
             {
                 var delay = new Random().Next(1000, 5000);
                 await Task.Delay(delay);
 
                 var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
-                var service = serviceProvider.GetService<ICybersourceService>();
                 var result = await service.GeneratePublicKeyAsync("JWT", request);
 
                 Console.WriteLine(i);

@@ -13,8 +13,9 @@
         public static async Task Main()
         {
             //await SingleCallAsync();
-            await BenchmarkSequenceAsync();
-            //await BenchmarkParallelAsync();
+            //await BenchmarkSequenceAsync();
+            await BenchmarkParallelAsync();
+
             Console.ReadKey();
         }
 
@@ -35,9 +36,9 @@
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            var customerService = serviceProvider.GetService<ICustomerService>();
             for (int i = 0; i < 100; i++)
             {
-                var customerService = serviceProvider.GetService<ICustomerService>();
                 var result = await customerService.ListCustomersAsync();
                 Console.WriteLine(i);
             }
@@ -53,12 +54,12 @@
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            var customerService = serviceProvider.GetService<ICustomerService>();
             IEnumerable<Task> tasks = Enumerable.Range(1, 100).Select(i => Task.Run(async () =>
             {
                 var delay = new Random().Next(1000, 5000);
                 await Task.Delay(delay);
 
-                var customerService = serviceProvider.GetService<ICustomerService>();
                 var result = await customerService.ListCustomersAsync();
 
                 Console.WriteLine(i);

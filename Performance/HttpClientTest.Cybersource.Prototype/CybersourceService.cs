@@ -10,20 +10,20 @@
     public class CybersourceService : ICybersourceService
     {
         private readonly HttpClient httpClient;
+        private readonly KeyGenerationApi api;
 
         public CybersourceService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
-        }
-
-        public async Task<string> GeneratePublicKeyAsync(string format, GeneratePublicKeyRequest request)
-        {
             var configuration = new Configuration(GetMerchantConfiguration())
             {
                 BasePath = "https://api-m-cybersource-test.azure-api.net/fuse",
             };
-            var api = new KeyGenerationApi(httpClient, configuration);
+            api = new KeyGenerationApi(httpClient, configuration);
+        }
 
+        public async Task<string> GeneratePublicKeyAsync(string format, GeneratePublicKeyRequest request)
+        {
             return await api.GeneratePublicKeyAsync(format, request);
         }
 

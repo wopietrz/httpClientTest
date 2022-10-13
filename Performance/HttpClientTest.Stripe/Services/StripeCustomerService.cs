@@ -9,6 +9,7 @@
         const string apiKey = "sk_test_51J6CwAC8DfhOXr8SxF9MqPEOFlmxlDOm3EFQEhv2FG3SMTPmZw1LW3GSsxQqb6dYcxPgrz3QVzqgfPVmQk08cfli00NvfDM3xk";
 
         private readonly IStripeClient stripeClient;
+        private readonly CustomerService service;
 
         public StripeCustomerService(HttpClient httpClient)
         {
@@ -16,11 +17,11 @@
                 apiKey,
                 apiBase: "https://api-m-cybersource-test.azure-api.net/stripe",
                 httpClient: new SystemNetHttpClient(httpClient));
+            service = new CustomerService(this.stripeClient);
         }
 
         public async Task<string> ListCustomersAsync(int limit = 10)
         {
-            var service = new CustomerService(stripeClient);
             var options = new CustomerListOptions
             {
                 Limit = 2,

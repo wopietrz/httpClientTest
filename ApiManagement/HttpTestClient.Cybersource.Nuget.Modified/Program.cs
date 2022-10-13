@@ -14,8 +14,7 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
         public static async Task Main()
         {
             await SingleCallAsync();
-            //await BenchmarkSequenceAsync();
-            //await BenchmarkParallelAsync();
+           
             Console.ReadKey();
         }
 
@@ -23,61 +22,17 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
         private static async Task SingleCallAsync()
         {
             var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
-            //TODO: Uncomment the code below to use Api Management
-            //var apiInstance = new KeyGenerationApi(GetConfiguration());
-
+            //TODO: Uncomment the code below to use API Management
+            //var apiInstance = new KeyGenerationApi(GetMerchantConfigurationWithApiManagment());
+            //TODO: Comment the code below to NOT use API Managemtn
             var apiInstance = new KeyGenerationApi(new Configuration(merchConfigDictObj: GetMerchantConfiguration()));
+            
             var response = await apiInstance.GeneratePublicKeyAsync("JWT", request).ConfigureAwait(false);
 
             Console.WriteLine(response.KeyId);
         }
 
-        private static async Task BenchmarkSequenceAsync()
-        {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
-            for (int i = 0; i < 100; i++)
-            {
-                var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
-                //TODO: Uncomment the code below to use Api Management
-                //var apiInstance = new KeyGenerationApi(GetConfiguration());
-
-                var apiInstance = new KeyGenerationApi(new Configuration(merchConfigDictObj: GetMerchantConfiguration()));
-                var response = await apiInstance.GeneratePublicKeyAsync("JWT", request).ConfigureAwait(false);
-
-                Console.WriteLine(i);
-            }
-            stopWatch.Stop();
-            Console.WriteLine($"HttpClientTest.Cybersource.NuGet/ Sequence Elapsed = {stopWatch.ElapsedMilliseconds}");
-        }
-
-        private static async Task BenchmarkParallelAsync()
-        {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
-            IEnumerable<Task> tasks = Enumerable.Range(1, 100).Select(i => Task.Run(async () =>
-            {
-                var delay = new Random().Next(1000, 5000);
-                await Task.Delay(delay);
-
-                var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
-
-                //TODO: Uncomment the code below to use Api Management
-                //var apiInstance = new KeyGenerationApi(GetConfiguration());
-
-                var apiInstance = new KeyGenerationApi(new Configuration(merchConfigDictObj: GetMerchantConfiguration()));
-                var response = await apiInstance.GeneratePublicKeyAsync("JWT", request).ConfigureAwait(false);
-
-                Console.WriteLine(i);
-            }));
-            await Task.WhenAll(tasks);
-            stopWatch.Stop();
-            Console.WriteLine($"HttpClientTest.Cybersource.NuGet/ Parallel Elapsed = {stopWatch.ElapsedMilliseconds}");
-        }
-
-        private static Configuration GetConfiguration()
+        private static Configuration GetMerchantConfigurationWithApiManagment()
         {
             var apiClient = new ApiClient("https://api-m-cybersource-test.azure-api.net/fuse");
             

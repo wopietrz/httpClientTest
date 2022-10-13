@@ -15,6 +15,8 @@
             //await SingleCall();
             await BenchmarkSequenceAsync();
             //await BenchmarkParallelAsync();
+
+            Console.ReadKey();
         }
 
         private static async Task SingleCall()
@@ -35,9 +37,9 @@
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            var service = serviceProvider.GetService<IAdyenService>();
             for (int i = 0; i < 100; i++)
             {
-                var service = serviceProvider.GetService<IAdyenService>();
                 var result = await service.Pay();
                 Console.WriteLine(i);
             }
@@ -53,12 +55,12 @@
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            var service = serviceProvider.GetService<IAdyenService>();
             IEnumerable<Task> tasks = Enumerable.Range(1, 100).Select(i => Task.Run(async () =>
             {
                 var delay = new Random().Next(1000, 5000);
                 await Task.Delay(delay);
 
-                var service = serviceProvider.GetService<IAdyenService>();
                 var result = await service.Pay();
 
                 Console.WriteLine(i);
