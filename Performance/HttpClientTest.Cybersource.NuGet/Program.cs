@@ -37,6 +37,7 @@ namespace HttpClientTest.Cybersource.NuGet
             for (int i = 0; i < 100; i++)
             {
                 var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
+                // Cybs SDK is not thread safe and must be created for each call
                 var apiInstance = new KeyGenerationApi(new CyberSource.Client.Configuration(merchConfigDictObj: GetConfiguration()));
                 var response = await apiInstance.GeneratePublicKeyAsync("JWT", request).ConfigureAwait(false);
 
@@ -57,6 +58,7 @@ namespace HttpClientTest.Cybersource.NuGet
                 await Task.Delay(delay);
 
                 var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
+                // Cybs SDK is not thread safe and must be created for each call
                 var apiInstance = new KeyGenerationApi(new CyberSource.Client.Configuration(merchConfigDictObj: GetConfiguration()));
                 var response = await apiInstance.GeneratePublicKeyAsync("JWT", request).ConfigureAwait(false);
 

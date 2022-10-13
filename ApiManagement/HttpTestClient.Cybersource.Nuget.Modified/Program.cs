@@ -39,7 +39,7 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
             var defaultHeader = new Dictionary<string, string>();
 
             defaultHeader.Add("Ocp-Apim-Subscription-Key", "e895703d8c6e4ff6aea58174c024f57e");
-            defaultHeader.Add("Ocp-Apim-Trace", "true");
+            //defaultHeader.Add("Ocp-Apim-Trace", "true");
             defaultHeader.Add("Host", "api-m-cybersource-test.azure-api.net");
             
             return new Configuration(
