@@ -194,10 +194,11 @@ namespace CyberSource.Client
                 }
                 else
                 {
-                    if (request.Parameters.Any(x => x.Name == param.Key && x.Type == ParameterType.HttpHeader))
-                    {
-                        continue;
-                    }
+                    //TODO: Uncomment the code below to use Api Management
+                    //if (request.Parameters.Any(x => x.Name == param.Key && x.Type == ParameterType.HttpHeader))
+                    //{
+                    //    continue;
+                    //}
 
                     request.AddHeader(param.Key, param.Value);
                 }
@@ -964,6 +965,14 @@ namespace CyberSource.Client
 
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
+            
+            //TODO: comment the line below to use Api Management
+            RestClient = new RestClient("https://" + merchantConfig.HostName);
+
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy;
+            }
         }
     }
 }

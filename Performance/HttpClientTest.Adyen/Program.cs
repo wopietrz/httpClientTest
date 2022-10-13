@@ -12,8 +12,8 @@
     {
         static async Task Main(string[] args)
         {
-            //await SingleCall();
-            //await BenchmarkSequenceAsync();
+            await SingleCall();
+            await BenchmarkSequenceAsync();
             await BenchmarkParallelAsync();
         }
 

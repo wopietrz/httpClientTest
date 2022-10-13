@@ -13,9 +13,8 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
     {
         public static async Task Main()
         {
-
-            //await SingleCallAsync();
-            //await BenchmarkSequenceAsync();
+            await SingleCallAsync();
+            await BenchmarkSequenceAsync();
             await BenchmarkParallelAsync();
             Console.ReadKey();
         }
@@ -24,7 +23,10 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
         private static async Task SingleCallAsync()
         {
             var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
-            var apiInstance = new KeyGenerationApi(GetConfiguration());
+            //TODO: Uncomment the code below to use Api Management
+            //var apiInstance = new KeyGenerationApi(GetConfiguration());
+
+            var apiInstance = new KeyGenerationApi(new Configuration(merchConfigDictObj: GetMerchantConfiguration()));
             var response = await apiInstance.GeneratePublicKeyAsync("JWT", request).ConfigureAwait(false);
 
             Console.WriteLine(response.KeyId);
@@ -38,7 +40,10 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
             for (int i = 0; i < 100; i++)
             {
                 var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
-                var apiInstance = new KeyGenerationApi(GetConfiguration());
+                //TODO: Uncomment the code below to use Api Management
+                //var apiInstance = new KeyGenerationApi(GetConfiguration());
+
+                var apiInstance = new KeyGenerationApi(new Configuration(merchConfigDictObj: GetMerchantConfiguration()));
                 var response = await apiInstance.GeneratePublicKeyAsync("JWT", request).ConfigureAwait(false);
 
                 Console.WriteLine(i);
@@ -58,7 +63,11 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
                 await Task.Delay(delay);
 
                 var request = new GeneratePublicKeyRequest("RsaOaep256", "https://www.test.com");
-                var apiInstance = new KeyGenerationApi(GetConfiguration());
+
+                //TODO: Uncomment the code below to use Api Management
+                //var apiInstance = new KeyGenerationApi(GetConfiguration());
+
+                var apiInstance = new KeyGenerationApi(new Configuration(merchConfigDictObj: GetMerchantConfiguration()));
                 var response = await apiInstance.GeneratePublicKeyAsync("JWT", request).ConfigureAwait(false);
 
                 Console.WriteLine(i);
@@ -73,6 +82,7 @@ namespace HttpClientTest.Cybersource.NuGet.Modified
             var apiClient = new ApiClient("https://api-m-cybersource-test.azure-api.net/fuse");
             
             var defaultHeader = new Dictionary<string, string>();
+
             defaultHeader.Add("Ocp-Apim-Subscription-Key", "e895703d8c6e4ff6aea58174c024f57e");
             defaultHeader.Add("Ocp-Apim-Trace", "true");
             defaultHeader.Add("Host", "api-m-cybersource-test.azure-api.net");
