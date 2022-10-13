@@ -12,9 +12,9 @@ namespace HttpClientTest.Cybersource.Prototype
     {
         public static async Task Main()
         {
-            await SingleCallAsync();
+            //await SingleCallAsync();
             await BenchmarkSequenceAsync();
-            await BenchmarkParallelAsync();
+           // await BenchmarkParallelAsync();
             Console.ReadKey();
         }
 
@@ -46,7 +46,7 @@ namespace HttpClientTest.Cybersource.Prototype
             }
 
             stopWatch.Stop();
-            Console.WriteLine($"HttpClientTest.Cybersource.Prototype Elapsed = {stopWatch.ElapsedMilliseconds}");
+            Console.WriteLine($"HttpClientTest.Cybersource.Prototype/ Sequence Elapsed = {stopWatch.ElapsedMilliseconds}");
         }
 
         private static async Task BenchmarkParallelAsync()

@@ -13,9 +13,9 @@ namespace HttpClientTest.Cybersource.NuGet
         public static async Task Main()
         {
 
-            await SingleCallAsync();
+            //await SingleCallAsync();
             await BenchmarkSequenceAsync();
-            await BenchmarkParallelAsync();
+            //await BenchmarkParallelAsync();
             Console.ReadKey();
         }
 

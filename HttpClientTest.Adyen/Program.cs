@@ -13,8 +13,8 @@
         static async Task Main(string[] args)
         {
             //await SingleCall();
-            //await BenchmarkSequenceAsync();
-            await BenchmarkParallelAsync();
+            await BenchmarkSequenceAsync();
+            //await BenchmarkParallelAsync();
         }
 
         private static async Task SingleCall()
