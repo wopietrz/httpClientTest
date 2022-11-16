@@ -24,6 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientTest.Cybersource.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientTest.Stripe", "Performance\HttpClientTest.Stripe\HttpClientTest.Stripe.csproj", "{009D7BB2-E495-4FA0-847D-3E3D5E0DF369}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationSdk", "ApiManagement\cybersource-rest-auth-netstandard\AuthenticationSdk\AuthenticationSdk\AuthenticationSdk.csproj", "{28681343-EBF1-43F2-8DEB-969276599398}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{009D7BB2-E495-4FA0-847D-3E3D5E0DF369}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{009D7BB2-E495-4FA0-847D-3E3D5E0DF369}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{009D7BB2-E495-4FA0-847D-3E3D5E0DF369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28681343-EBF1-43F2-8DEB-969276599398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28681343-EBF1-43F2-8DEB-969276599398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28681343-EBF1-43F2-8DEB-969276599398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28681343-EBF1-43F2-8DEB-969276599398}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{5823AD9A-CA96-442E-82D0-3C7794369FB2} = {DD86D5CC-1E86-417F-A547-22B03B3C819A}
 		{7F94F346-EABE-4ADD-A2F9-13C26C17A354} = {DD86D5CC-1E86-417F-A547-22B03B3C819A}
 		{009D7BB2-E495-4FA0-847D-3E3D5E0DF369} = {DD86D5CC-1E86-417F-A547-22B03B3C819A}
+		{28681343-EBF1-43F2-8DEB-969276599398} = {1C75D0ED-B997-45B9-ABDA-FFBAAE914039}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94CF0924-FBBA-467E-9DEB-2B19F74F5D77}
